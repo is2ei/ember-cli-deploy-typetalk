@@ -1,15 +1,24 @@
 {
     "name": "ember-cli-deploy-typetalk",
     "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/is2ei/ember-cli-deploy-typetalk"
+    },
+    "license": "MIT",
     "devDependencies": {
         "chai": "^4.2.0",
+        "coveralls": "^3.0.3",
         "eslint": "^5.14.1",
         "eslint-config-is2ei": "^0.1.2",
-        "mocha": "^6.0.0"
+        "mocha": "^6.0.0",
+        "nyc": "^13.3.0"
     },
     "scripts": {
         "lint": "node_modules/.bin/eslint ./lib ./test",
-        "test": "./node_modules/.bin/mocha"
+        "test": "mocha",
+        "coverage": "nyc mocha",
+        "report-coverage": "nyc mocha && nyc report --reporter=text-lcov | coveralls"
     },
     "dependencies": {
         "ember-cli-deploy-plugin": "^0.2.9"
